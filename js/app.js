@@ -4,6 +4,7 @@ const App = new Vue({
     effects: {},
     enableEvents: false,
     timer: null,
+    prodTime: null,
     volume: 1,
     minimumDelay: 10000,
     lastEvent: null,
@@ -195,6 +196,10 @@ const App = new Vue({
       // If events arent enabled don't do anything
       if (!this.enableEvents) return false;
 
+      this.prodTime = this.prodTime == null ? 0 : this.prodTime + 1;
+      
+      console.log(this.prodTime)
+      console.log('enable vents : ', this.enableEvents)
       // Grab the current time
       let now = new Date();
       let timeSinceEpoch = now.getTime();
