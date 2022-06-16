@@ -4,7 +4,7 @@ const App = new Vue({
     effects: {},
     enableEvents: false,
     timer: null,
-    prodTime: null,
+    prodTime: { min: 0, sec: 0, hr: 0 },
     volume: 1,
     minimumDelay: 10000,
     lastEvent: null,
@@ -99,7 +99,8 @@ const App = new Vue({
       vm.mainLoop();
     }, 1000);
   },
-  created: function () {},
+  created: function () {
+  },
   methods: {
     /**
      * Handles the scroll event lowering volume on scroll down and raising it on scroll up
@@ -196,9 +197,19 @@ const App = new Vue({
       // If events arent enabled don't do anything
       if (!this.enableEvents) return false;
 
-      this.prodTime = this.prodTime == null ? 0 : this.prodTime + 1;
+      if(this.prodTime.sec == 60) {
+        this.prodTime.min += 1;
+        this.prodTime.sec = 0
+      }
+
+      if(this.prodTime.min == 60) {
+        this.prodTime.hr += 1;
+        this.prodTime.min = 0
+      }
+
+      this.prodTime.sec += 1;
       
-      console.log(this.prodTime)
+      console.log(this.prodTime.sec, this.prodTime.min, this.prodTime.hr)
       console.log('enable vents : ', this.enableEvents)
       // Grab the current time
       let now = new Date();
@@ -260,5 +271,10 @@ const App = new Vue({
     },
   },
   computed: {},
-  components: {},
+  components: {
+    navbar: {
+      props: ['timer'],
+      template: `<header className="w-[100vw] h-24 bg-white"> {{ timer }} </header>`
+    }
+  },
 });
