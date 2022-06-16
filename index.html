@@ -8,7 +8,7 @@
 	<link href="stylesheets/main.css" rel="stylesheet" />
 </head>
 <body class="m-0">
-	<div id="app" class="m-0 p-0 absolute h-full w-full bg-[url('../images/background.png')] bg-cover bg-center">
+	<div id="app" class="m-0 p-0 absolute h-full w-full bg-[url('./images/background.png')] bg-cover bg-center">
 
 		<div class="m-0 h-full w-full flex flex-col justify-between" @click="toggleSounds" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
 			<header class="w-[100vw] h-[10vh] bg-white flex items-center justify-center">
