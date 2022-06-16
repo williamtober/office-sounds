@@ -4,7 +4,7 @@ const App = new Vue({
     effects: {},
     enableEvents: false,
     timer: null,
-    prodTime: { min: 0, sec: 0, hr: 0 },
+    prodTime: { min: 59, sec: 59, hr: 0 },
     volume: 1,
     minimumDelay: 10000,
     lastEvent: null,
@@ -208,6 +208,8 @@ const App = new Vue({
       }
 
       this.prodTime.sec += 1;
+
+      document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
       
       console.log(this.prodTime.sec, this.prodTime.min, this.prodTime.hr)
       console.log('enable vents : ', this.enableEvents)

@@ -11,7 +11,9 @@
 	<div id="app" class="m-0 p-0 absolute h-full w-full bg-[url('../images/background.png')]">
 
 		<div class="m-0" @click="toggleSounds" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
-			<div class="">TEST</div>
+			<div class="w-[100vw] h-[10vh] bg-white">
+				<h1 class="text-4xl font-bold">Time Spent in Office <span id="officeTime"></span></h1>
+			</div>
 		</div>
 	</div>
 	<script src="js/app.js"></script>
