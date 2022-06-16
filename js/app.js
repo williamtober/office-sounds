@@ -90,6 +90,13 @@ const App = new Vue({
     let vm = this;
 
     document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
+    document.getElementById("reset").addEventListener('click', () => {
+      console.log('pressed reset')
+      this.prodTime.min = 0;
+      this.prodTime.sec = 0;
+      this.prodTime.hr = 0;
+      document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
+    })
 
     // Initialize all the effects
     this.initializeEffects();
@@ -103,12 +110,30 @@ const App = new Vue({
     }, 1000);
   },
   created: function () {
+
+    // pause button function
+    document.addEventListener('keypress', (e) => {
+      console.log(e.code) // troubleshooting to see what codes come through
+      
+      switch(e.code) {
+        case "Space" : {
+          App.toggleSounds()
+        } break;
+        case "KeyP": {
+          App.toggleSounds()
+        } break;
+      }
+    })
+
+
   },
   methods: {
     /**
      * Handles the scroll event lowering volume on scroll down and raising it on scroll up
      * @param {*} event
      */
+
+
     handleScroll: function (event) {
       if (event.deltaY < 0) {
         this.volume += 0.1;
