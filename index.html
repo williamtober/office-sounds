@@ -10,13 +10,23 @@
 <body class="m-0">
 	<div id="app" class="m-0 p-0 absolute h-full w-full bg-[url('../images/background.png')] bg-cover bg-center">
 
-		<div class="m-0 h-full w-full " @click="toggleSounds" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
+		<div class="m-0 h-full w-full flex flex-col justify-between" @click="toggleSounds" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
 			<header class="w-[100vw] h-[10vh] bg-white flex items-center justify-center">
 				<h1 class="text-4xl font-bold">Time Spent in Office <span id="officeTime"></span></h1>
 			</header>
-			<footer class="w-[100vw] h-[7vh] bg-white flex flex-row justify-around">
-				<input value="Pause"/>
-				<input value="Reset"/>
+			<footer class="w-[100vw] h-[10vh] bg-white flex flex-row items-center justify-around mt-auto">
+				<div class="h-full w-5/12 flex flex-row justify-around items-center">
+					<ul class="w-auto h-full flex flex-col justify-center items-start">
+						<li class="text-lg font-semibold">Pause - Space / Tap / Click</li>
+						<li class="text-lg font-semibold">Volume - Mouse Wheel</li>
+						<li class="text-lg font-semibold">Reset Timer - R Key</li>
+					</ul>
+				</div>
+				<div class="h-full w-5/12 flex flex-row justify-around items-center">
+					<input type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-4xl sm:text-xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Pause/Start"/>
+					<input type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-4xl sm:text-xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Reset"/>
+				</div>
+				
 			</footer>
 		</div>
 	</div>

@@ -88,6 +88,9 @@ const App = new Vue({
   },
   mounted: async function () {
     let vm = this;
+
+    document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
+
     // Initialize all the effects
     this.initializeEffects();
 
