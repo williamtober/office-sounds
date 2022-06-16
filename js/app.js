@@ -4,7 +4,7 @@ const App = new Vue({
     effects: {},
     enableEvents: false,
     timer: null,
-    prodTime: { min: 59, sec: 59, hr: 0 },
+    prodTime: localStorage.getItem("prodTime") ? JSON.parse(localStorage.getItem("prodTime")) : { min: 0, sec: 0, hr: 0 },
     volume: 1,
     minimumDelay: 10000,
     lastEvent: null,
@@ -197,17 +197,25 @@ const App = new Vue({
       // If events arent enabled don't do anything
       if (!this.enableEvents) return false;
 
+      // * UPDATES MINUTES
       if(this.prodTime.sec == 60) {
         this.prodTime.min += 1;
         this.prodTime.sec = 0
       }
 
+      // * UPDATES HOURS
       if(this.prodTime.min == 60) {
         this.prodTime.hr += 1;
         this.prodTime.min = 0
       }
-
+      
+      // * UPDATES SECONDS
       this.prodTime.sec += 1;
+
+      // * SAVES TIME IN OFFICE TO LOCAL STORAGE
+      if(this.prodTime.sec % 10 == 0) {
+        localStorage.setItem('prodTime', JSON.stringify(this.prodTime))
+      }
 
       document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
       
@@ -266,9 +274,11 @@ const App = new Vue({
       if (this.sounds.background[0].buffer.playing) {
         this.enableEvents = false;
         this.sounds.background[0].buffer.stop();
+        this.sounds.event[0].buffer.stop()
       } else {
         this.enableEvents = true;
         this.sounds.background[0].buffer.play();
+        this.sounds.event[0].buffer.play();
       }
     },
   },
