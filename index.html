@@ -1,14 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html class="m-0">
 <html>
 <head>
 	<title></title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js" integrity="sha512-K+cPWcoDCr2JFFfe912LrvRUQbVJuWNfeWK5r/HrmpDs8ELrsjVib8Fs5oAxzu76fG66ajGhDLvvcxBbeEzl9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" crossorigin="anonymous"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
 	<link href="stylesheets/main.css" rel="stylesheet" />
 </head>
-<body>
-	<div id="app">
-		<div class="full" @click="toggleSounds" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
+<body class="m-0">
+	<div id="app" class="m-0 p-0 absolute h-full w-full bg-[url('../images/background.png')]">
+
+		<div class="m-0" @click="toggleSounds" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
+			<div class="">TEST</div>
 		</div>
 	</div>
 	<script src="js/app.js"></script>

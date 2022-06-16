@@ -272,9 +272,6 @@ const App = new Vue({
   },
   computed: {},
   components: {
-    navbar: {
-      props: ['timer'],
-      template: `<header className="w-[100vw] h-24 bg-white"> {{ timer }} </header>`
-    }
+    
   },
 });
