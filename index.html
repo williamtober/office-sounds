@@ -23,8 +23,8 @@
 					</ul>
 				</div>
 				<div class="h-full w-5/12 overflow-hidden flex flex-row justify-around items-center">
-					<input type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-2xl sm:text-2xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Pause/Start"/>
-					<input id="reset" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-2xl sm:text-2xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Reset"/>
+					<input @click="toggleSounds" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-2xl sm:text-2xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Pause/Start"/>
+					<input @click="reset" id="reset" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-2xl sm:text-2xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Reset"/>
 				</div>
 				
 			</footer>

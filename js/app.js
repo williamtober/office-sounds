@@ -90,13 +90,13 @@ const App = new Vue({
     let vm = this;
 
     document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
-    document.getElementById("reset").addEventListener('click', () => {
-      console.log('pressed reset')
-      this.prodTime.min = 0;
-      this.prodTime.sec = 0;
-      this.prodTime.hr = 0;
-      document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
-    })
+    // document.getElementById("reset").addEventListener('click', () => {
+    //   console.log('pressed reset')
+    //   this.prodTime.min = 0;
+    //   this.prodTime.sec = 0;
+    //   this.prodTime.hr = 0;
+    //   document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
+    // })
 
     // Initialize all the effects
     this.initializeEffects();
@@ -309,6 +309,13 @@ const App = new Vue({
         this.sounds.event[0].buffer.play();
       }
     },
+    reset: function() {
+      console.log('pressed reset')
+      this.prodTime.min = 0;
+      this.prodTime.sec = 0;
+      this.prodTime.hr = 0;
+      document.getElementById("officeTime").innerText = `${this.prodTime.hr > 0 ? this.prodTime.hr + "hr" : ""} ${this.prodTime.min > 0  ? this.prodTime.min + "min" : ""} ${this.prodTime.sec + "sec"}`
+    }
   },
   computed: {},
   components: {
