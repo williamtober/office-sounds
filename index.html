@@ -8,23 +8,23 @@
 	<link href="stylesheets/main.css" rel="stylesheet" />
 </head>
 <body class="m-0">
-	<div id="app" class="m-0 p-0 overflow-hidden absolute h-full w-full bg-[url('./images/background.png')] bg-cover bg-center">
+	<div id="app" class="m-0 p-0 overflow-hidden absolute h-full w-full bg-[url('./images/officebg.jpg')] bg-cover bg-right">
 
 		<div class="m-0 h-full w-full flex flex-col justify-between overflow-hidden" v-on:contextmenu.prevent="sounds.event[0].buffer.play()" v-on:mousewheel="handleScroll">
 			<header class="w-[100vw] h-[10vh] overflow-hidden bg-white flex items-center justify-center">
 				<h1 class="text-4xl font-bold">Time Spent in Office <span id="officeTime"></span></h1>
 			</header>
-			<footer class="w-[100vw] h-[10vh] overflow-hidden bg-white flex flex-row items-center justify-around mt-auto">
+			<footer class="w-[100vw] h-[14vh] overflow-hidden bg-white flex flex-row items-center justify-around mt-auto">
 				<div class="h-full w-5/12 flex flex-row justify-around items-center">
 					<ul class="w-auto h-full flex flex-col justify-center items-start">
-						<li class="text-lg font-semibold">Pause - Space / Button</li>
-						<li class="text-lg font-semibold">Volume - Mouse Wheel</li>
-						<li class="text-lg font-semibold">Reset Timer - R Key</li>
+						<li class="text-2xl font-bold">Pause - Space / Button</li>
+						<li class="text-2xl font-bold">Volume - Mouse Wheel</li>
+						<li class="text-2xl font-bold">Reset Timer - R Key</li>
 					</ul>
 				</div>
-				<div class="h-full w-5/12 overflow-hidden flex flex-row justify-around items-center">
-					<input @click="toggleSounds" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-2xl sm:text-2xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Pause/Start"/>
-					<input @click="reset" id="reset" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-2xl sm:text-2xl h-[9vh] sm:h-16 w-40 rounded-md font-bold text-center" value="Reset"/>
+				<div class="h-[10vh] w-7/12 overflow-hidden flex flex-row justify-around sm:justify-center items-center sm:gap-x-8 ">
+					<input @click="toggleSounds" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-4xl sm:text-4xl h-5/6 sm:h-4/6 w-5/12 rounded-md font-bold text-center" value="Pause/Start"/>
+					<input @click="reset" id="reset" type="button" class="hover:cursor-pointer hover:bg-orange-200 bg-gray-200 text-4xl sm:text-4xl h-5/6 sm:h-4/6 w-5/12 rounded-md font-bold text-center" value="Reset"/>
 				</div>
 				
 			</footer>
